@@ -19,4 +19,3 @@ const port = config.PORT;
 app.listen(port, function() {
   console.log(`App is listening on port ${port}`);
 });
-
