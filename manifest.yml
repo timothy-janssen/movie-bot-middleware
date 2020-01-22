@@ -1,0 +1,7 @@
+---
+applications:
+- name: cai_movie_bot_backend 
+  path: .
+  command: node index.js
+  buildpacks: 
+    - nodejs_buildpack
