@@ -13,14 +13,10 @@ function loadMovieRoute(app) {
     const isoCode = language.short.toLowerCase();
 
     return discoverMovie(kind, genreId, isoCode)
-      .then(function(data) {
+      .then( function(movie_response) {
+        console.log(movie_response)
         res.json({
-          replies: data,
-          conversation: {
-            memory: {
-              'name': 'Tim',
-            }
-          }
+          replies: movie_response
         });
       })
       .catch(function(err) {

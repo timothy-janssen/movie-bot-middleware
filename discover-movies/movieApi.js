@@ -3,8 +3,8 @@ const config = require('../config');
 
 function discoverMovie(kind, genreId, language) {
   return moviedbApiCall(kind, genreId, language).then(response => {
-    console.log(response.data)
-    apiResultToCarousselle(response.data.results, kind)
+    //console.log(response.data)
+    return apiResultToCarousselle(response.data.results, kind)
   });
 }
 
@@ -36,7 +36,7 @@ function apiResultToCarousselle(results, kind) {
     ];
   }
 
-  const cards = results.slice(0, 10).map(e => ({
+  cards = results.slice(0, 10).map(e => ({
     title: e.title || e.name,
     subtitle: e.overview,
     imageUrl: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.poster_path}`,
@@ -59,7 +59,7 @@ function apiResultToCarousselle(results, kind) {
 }
 
 module.exports = {
-  discoverMovie,
+  discoverMovie
 };
 
 
